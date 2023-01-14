@@ -89,23 +89,21 @@ let upperCasedCharacters = [
 ];
 
 // Prompt to get password length
-let passwordLength = prompt("How long would you like your password? (10 - 64 characters)");
-let passwordInt = parseInt(passwordLength);
+var passwordLength = prompt("How long would you like your password? (10 - 64 characters)");
+var passwordInt = parseInt(passwordLength);
 
 console.log(passwordInt);
 
-// Data validation to ensure password length is a number
-while (isNaN(passwordInt)) {
+// Data validation to ensure password length is a number & correct length
+while (isNaN(passwordInt) || passwordInt < 10 || passwordInt > 64) {
   passwordLength = prompt("Try again, how long would you like your password? (10 - 64 characters)")
   passwordInt = parseInt(passwordLength);
+  
 }
 
-// Data validation on password length
-while (passwordInt < 10 || passwordInt > 64) {
-  passwordInt = prompt("Try again, how long would you like your password? (10 - 64 characters)")
-} 
-
 console.log(passwordInt);
+
+
 
 // Object for other password options
 let passwordOptions = [
@@ -127,20 +125,30 @@ let passwordOptions = [
   }
 ]
 
+while (passwordOptions[0].required !== "Y" && passwordOptions[1].required !== "Y" && passwordOptions[2].required !== "Y" && passwordOptions[3].required !== "Y") {
+  passwordOptions[0].required = prompt("Try again, you must select at least 1 character type, would you like lowercase characters? Y or N").toUpperCase()
+  passwordOptions[1].required = prompt("Would you like uppercase characters? Y or N").toUpperCase()
+  passwordOptions[2].required = prompt("Would you like numeric characters? Y or N").toUpperCase()
+  passwordOptions[3].required = prompt("Would you like special characters? Y or N").toUpperCase()
+
+}
+
+
 console.log(passwordOptions);
+
 
 // Data validation to ensure Y or N selected on other password options
 while (passwordOptions[0].required !== "Y" && passwordOptions[0].required !== "N" ) {
-  passwordOptions[0].required = prompt("Try again, would you like lowercase characters? Y or N")
+  passwordOptions[0].required = prompt("Try again, would you like lowercase characters? Y or N").toUpperCase()
 }
 while (passwordOptions[1].required !== "Y" && passwordOptions[1].required !== "N" ) {
-  passwordOptions[1].required = prompt("Try again, would you like uppercase characters? Y or N")
+  passwordOptions[1].required = prompt("Try again, would you like uppercase characters? Y or N").toUpperCase()
 }
 while (passwordOptions[2].required !== "Y" && passwordOptions[2].required !== "N" ) {
-  passwordOptions[2].required = prompt("Try again, would you like numeric characters? Y or N")
+  passwordOptions[2].required = prompt("Try again, would you like numeric characters? Y or N").toUpperCase()
 }
 while (passwordOptions[3].required !== "Y" && passwordOptions[3].required !== "N" ) {
-  passwordOptions[3].required = prompt("Try again, would you like special characters? Y or N")
+  passwordOptions[3].required = prompt("Try again, would you like special characters? Y or N").toUpperCase()
 }
 
 console.log(passwordOptions);
@@ -156,6 +164,7 @@ console.log(p);
 
 
 console.log(p.length);
+
 
 
 
@@ -175,15 +184,10 @@ console.log(p10);
 console.log(p10.length);
 
 
-
-// let randomIndex = Do random number for length of lowercasedcharacters 
-// lowerCasedCharacters[randomIndex]
-
 // For what user selects what characters, concantanate the strings then do random character from new string
 console.log(p10);
 
-// let randomIndex = Math.floor(Math.random() * p10.length);
-// let randomCharacter = console.log(p10[randomIndex]);
+
 
 
 
@@ -208,7 +212,7 @@ function generatePassword() {
   
   }
   
-generatePassword();
+
 
 
 

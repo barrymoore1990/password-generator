@@ -10,7 +10,7 @@ I learned a huge amount to do with Javascript, including improving my knowledge 
 
 ## Installation
 
-To install, copy the files from the repo to your own folder
+To install, copy the files from the repo - https://github.com/barrymoore1990/password-generator - to your own folder
 
 ## Usage
 
